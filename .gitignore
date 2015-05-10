@@ -5,3 +5,6 @@ app/app.js
 app/app.js.map
 AspNet5TypescriptProductionGrunt/app/app.js
 AspNet5TypescriptProductionGrunt/app/app.js.map
+.vs
+AspNet5TypescriptProductionGrunt/wwwroot/lib
+AspNet5TypescriptProductionGrunt/.tscache
