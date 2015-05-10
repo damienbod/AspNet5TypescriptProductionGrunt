@@ -1,0 +1,5 @@
+bower_components
+node_modules
+AspNet5TypescriptProductionGrunt.xproj.user
+app/app.js
+app/app.js.map
