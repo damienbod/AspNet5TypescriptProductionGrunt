@@ -32,11 +32,5 @@
     var module = angular.module('myapp');
 
     // this code can be used with uglify
-    module.service("FastestAnimalService",
-        [
-            "$http",
-            "$log",
-            FastestAnimalService
-        ]
-        );
+    module.service("FastestAnimalService", [ "$http", "$log", FastestAnimalService]);
 }
