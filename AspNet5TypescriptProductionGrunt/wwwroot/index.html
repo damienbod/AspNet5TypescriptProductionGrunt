@@ -6,9 +6,12 @@
     <link href="production/mycode.min.css" rel="stylesheet" />
     <link href="production/vender.min.css" rel="stylesheet" />
 </head>
-<body ng-app="myapp">
+<body>
     
-   {{ 5/3}}
+    <div ng-app="myapp">
+        <ng-view/>
+    </div>
+
     <script src="production/vendor.min.js"></script>
     <script src="production/mycode.min.js"></script>
 </body>

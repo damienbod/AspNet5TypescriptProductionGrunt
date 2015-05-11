@@ -10,11 +10,35 @@ module App {
 
     ]);
 
-    app.config(["$stateProvider", "$urlRouterProvider", ($stateProvider, $urlRouterProvider) => {
-        {
-            $urlRouterProvider.otherwise("/index");
+    app.config(["$stateProvider", "$urlRouterProvider",  ($stateProvider, $urlRouterProvider) => {
 
-        }
+        $urlRouterProvider.otherwise("/home/overview");
+
+        $stateProvider
+            .state("home", { abstract: true, url: "/home", templateUrl: "/templates/home.html" })
+            .state("overview", {
+            parent: "home", url: "/overview", templateUrl: "/templates/overview.html", controller: "OverviewController",
+            resolve: {
+
+                FastestAnimalService: "FastestAnimalService",
+
+                fastestAnimals: ["FastestAnimalService", (FastestAnimalService) => {
+                    return FastestAnimalService.getAnimals();
+                }]
+            }
+        })
+            .state("details", {
+            parent: "overview", url: "/details/:animalId", templateUrl: "/templates/details.html", controller: "DetailsController",
+            resolve: {
+                FastestAnimalService: "FastestAnimalService",
+
+                fastestAnimal: ["FastestAnimalService", "$stateParams", (FastestAnimalService, $stateParams) => {
+                    var animalId = $stateParams.animalId;
+                    console.log($stateParams.animalId);
+                    return FastestAnimalService.getAnimal({ animalId: animalId });
+                }]
+            }
+        })
     }
     ]);
 

@@ -33,7 +33,7 @@
             genesis: {
                 files: {
                     'wwwroot/production/mycode.min.css': [
-                       
+                       "app/content/main.css"
                     ]
                 }
             },
