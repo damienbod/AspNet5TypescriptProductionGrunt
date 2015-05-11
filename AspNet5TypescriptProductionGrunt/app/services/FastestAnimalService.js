@@ -1,30 +1,33 @@
-(function () {
+var demo;
+(function (demo) {
     'use strict';
-    function FastestAnimalService($http, $log) {
-        $log.info("FastestAnimalService called");
-        var getAnimals = function () {
-            $log.info("FastestAnimalService getAnimals called");
-            return $http.get("/api/FastestAnimal").then(function (response) {
+    var FastestAnimalService = (function () {
+        function FastestAnimalService($http, $log) {
+            this.$http = $http;
+            this.$log = $log;
+            this.$log.info("FastestAnimalService called");
+        }
+        FastestAnimalService.prototype.getAnimals = function () {
+            this.$log.info("FastestAnimalService getAnimals called");
+            return this.$http.get("/api/FastestAnimal").then(function (response) {
                 return response.data;
             });
         };
-        var getAnimal = function (animalId) {
-            $log.info("FastestAnimalService getAnimal called: " + animalId);
-            $log.info(animalId);
-            return $http.get("/api/FastestAnimal/" + animalId.animalId).then(function (response) {
+        FastestAnimalService.prototype.getAnimal = function (animalId) {
+            this.$log.info("FastestAnimalService getAnimal called: " + animalId);
+            this.$log.info(animalId);
+            return this.$http.get("/api/FastestAnimal/" + animalId.animalId).then(function (response) {
                 return response.data;
             });
         };
-        return {
-            getAnimals: getAnimals,
-            getAnimal: getAnimal
-        };
-    }
+        return FastestAnimalService;
+    })();
+    demo.FastestAnimalService = FastestAnimalService;
     var module = angular.module('myapp');
-    module.factory("FastestAnimalService", [
+    module.service("FastestAnimalService", [
         "$http",
         "$log",
         FastestAnimalService
     ]);
-})();
+})(demo || (demo = {}));
 //# sourceMappingURL=FastestAnimalService.js.map

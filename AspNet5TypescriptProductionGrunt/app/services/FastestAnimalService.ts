@@ -1,42 +1,42 @@
-﻿(function () {
-	'use strict';
+﻿module demo
+{
+    'use strict';
 
-	function FastestAnimalService($http, $log) {
+    export class FastestAnimalService
+    {
+        constructor(private $http: any, private $log: any)
+        {
+            this.$log.info("FastestAnimalService called");
+        }
 
-		$log.info("FastestAnimalService called");
+        public getAnimals()
+        {
+            this.$log.info("FastestAnimalService getAnimals called");
+            return this.$http.get("/api/FastestAnimal")
+                .then(function (response) {
+                return response.data;
+            });
+        }
 
-		var getAnimals = function () {
-			$log.info("FastestAnimalService getAnimals called");
-			return $http.get("/api/FastestAnimal")
-			.then(function (response) {
-				return response.data;
-			});
-		}
-
-		var getAnimal = function (animalId) {
-			$log.info("FastestAnimalService getAnimal called: " + animalId);
-			$log.info(animalId);
-			return $http.get("/api/FastestAnimal/" + animalId.animalId)
-			.then(function (response) {
-				return response.data;
-			});
-		}
-
-		return {
-			getAnimals: getAnimals,
-			getAnimal: getAnimal
-		}
-	}
+        public getAnimal(animalId: any)
+        {
+            this.$log.info("FastestAnimalService getAnimal called: " + animalId);
+            this.$log.info(animalId);
+            return this.$http.get("/api/FastestAnimal/" + animalId.animalId)
+                .then(function (response) {
+                return response.data;
+            });
+        }
+    }
 
     var module = angular.module('myapp');
 
-	// this code can be used with uglify
-	module.factory("FastestAnimalService",
-		[
-			"$http",
-			"$log",
-			FastestAnimalService
-		]
-	);
-
-})();
+    // this code can be used with uglify
+    module.service("FastestAnimalService",
+        [
+            "$http",
+            "$log",
+            FastestAnimalService
+        ]
+        );
+}
