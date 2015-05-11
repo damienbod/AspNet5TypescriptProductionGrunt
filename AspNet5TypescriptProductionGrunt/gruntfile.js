@@ -22,7 +22,7 @@
                     "lib/bootstrap/bootstrap.min.js",
                     "lib/angular-bootstrap/ui-bootstrap-tpls.min.js"
                 ],
-                dest: "wwwroot/production/vendor.min.js"
+                dest: "wwwroot/lib/vendor.min.js"
             }
         },
         cssmin: {
@@ -32,19 +32,16 @@
             },
             genesis: {
                 files: {
-                    'wwwroot/production/mycode.min.css': [
-                       "app/content/main.css"
+                    'wwwroot/lib/mycode.min.css': [
+                       "content/main.css"
                     ]
                 }
             },
             vender: {
                 files: {
-                    'wwwroot/production/vender.min.css': [
+                    'wwwroot/lib/vender.min.css': [
 
                           "lib/bootstrap/bootstrap.min.css",
-                          "content/font-awesome.min.css",
-                          "content/ng.min.css",
-                          "lib/angular-loading-bar/loading-bar.min.css"
                     ]
                 }
             }
@@ -52,8 +49,12 @@
         uglify: {
             genesis_min_files: {
                 files: {
-                    'wwwroot/production/mycode.min.js': [
-                        "app/app.js"
+                    'wwwroot/lib/mycode.min.js': [
+                        "app/app.js",
+                        "app/services/FastestAnimalService.js",
+                        "app/controllers/DetailsController.js",
+                        "app/controllers/OverviewController.js",
+
                     ]
                 }
             }
@@ -61,7 +62,7 @@
         bower: {
             install: {
                 options: {
-                    targetDir: "wwwroot/lib",
+                    targetDir: "lib",
                     layout: "byComponent",
                     cleanTargetDir: false
                 }
