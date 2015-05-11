@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    var module = angular.module('mainApp');
+    var module = angular.module('myapp');
     module.controller('DetailsController', [
         '$scope',
         '$log',

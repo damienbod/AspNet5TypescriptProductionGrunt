@@ -20,7 +20,7 @@
             getAnimal: getAnimal
         };
     }
-    var module = angular.module('mainApp');
+    var module = angular.module('myapp');
     module.factory("FastestAnimalService", [
         "$http",
         "$log",

@@ -28,7 +28,7 @@
 		}
 	}
 
-	var module = angular.module('mainApp');
+    var module = angular.module('myapp');
 
 	// this code can be used with uglify
 	module.factory("FastestAnimalService",

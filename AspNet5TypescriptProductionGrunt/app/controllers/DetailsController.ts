@@ -1,7 +1,7 @@
 ﻿(function () {
 	'use strict';
 
-	var module = angular.module('mainApp');
+    var module = angular.module('myapp');
 
 	// this code can be used with uglify
 	module.controller('DetailsController',

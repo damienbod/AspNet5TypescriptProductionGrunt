@@ -1,16 +1,16 @@
 ﻿/// <reference path="../bower_components/DefinitelyTyped/angularjs/angular.d.ts"/>
 
-module App {
+module demo {
     'use strict';
 
-    var app = angular.module('myapp', [
+    var demoapp = angular.module('myapp', [
         'ngAnimate',
         'ui.router',
         'ui.bootstrap',
 
     ]);
 
-    app.config(["$stateProvider", "$urlRouterProvider",  ($stateProvider, $urlRouterProvider) => {
+    demoapp.config(["$stateProvider", "$urlRouterProvider",  ($stateProvider, $urlRouterProvider) => {
 
         $urlRouterProvider.otherwise("/home/overview");
 
@@ -42,7 +42,7 @@ module App {
     }
     ]);
 
-    app.run(["$rootScope", $rootScope => {
+    demoapp.run(["$rootScope", $rootScope => {
         $rootScope.$on('$stateChangeStart',(event, toState, toParams, fromState, fromParams) => {
             console.log(event);
             console.log(toState);

@@ -1,4 +1,5 @@
-﻿module.exports = function (grunt) {
+﻿/// <reference path="lib/jquery/jquery.js" />
+module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
@@ -16,6 +17,7 @@
         concat: {
             venderjs: {
                 src: [
+                    "lib/jquery/jquery.js",
                     "lib/angular/angular.min.js",
                     "lib/angular-ui-router/angular-ui-router.min.js",
                     "lib/angular-animate/angular-animate.min.js",
