@@ -16,3 +16,4 @@ var demo;
     app.controller('OverviewController', ["$scope", "$log", "fastestAnimals", OverviewController]);
 })(demo || (demo = {}));
 ;
+//# sourceMappingURL=OverviewController.js.map

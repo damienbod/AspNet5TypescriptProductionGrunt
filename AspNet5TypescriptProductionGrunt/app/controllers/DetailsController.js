@@ -16,3 +16,4 @@ var demo;
     app.controller('DetailsController', ["$scope", "$log", "fastestAnimal", DetailsController]);
 })(demo || (demo = {}));
 ;
+//# sourceMappingURL=DetailsController.js.map
