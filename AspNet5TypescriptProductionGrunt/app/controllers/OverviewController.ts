@@ -14,7 +14,7 @@
         public Message: string;
         public Vm: IOverviewController;
 
-        constructor(scope: any, log: any, fastestAnimals: any) {
+        constructor(scope: ng.IScope, log: any, fastestAnimals: any) {
             scope.Vm = this;
             this.log = log;
             this.Message = "Overview";

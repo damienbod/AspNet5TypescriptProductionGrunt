@@ -1,24 +1,31 @@
-﻿(function () {
-	'use strict';
+﻿module demo {
+    'use strict';
 
-    var module = angular.module('myapp');
+    export interface IDetailsController extends ng.IScope {
+        Vm: DetailsController;
+    }
 
-	// this code can be used with uglify
-	module.controller('DetailsController',
-		[
-			'$scope',
-			'$log',
-			'fastestAnimal',
-			DetailsController
-		]
-	);
+    export class DetailsController {
 
-	function DetailsController($scope, $log, fastestAnimal) {
-		$log.info("DetailsController called");
-		$scope.message = "Animal Details";
+        private scope: ng.IScope;
+        private log: any;
 
-		$scope.animal = fastestAnimal;
+        public Animal: IFastestAnimal;
+        public Message: string;
+        public Vm: IDetailsController;
 
-	}
+        constructor(scope: ng.IScope, log: any, fastestAnimal: IFastestAnimal) {
+            scope.Vm = this;
+            this.log = log;
+            this.Message = "Animal Details";
+            this.log.info("DetailsController called");
+            this.Animal = fastestAnimal;
+        }
+    }
 
-})();
+    var app = angular.module('myapp');
+
+    app.controller('DetailsController', ["$scope", "$log", "fastestAnimal", DetailsController]);
+};
+
+
