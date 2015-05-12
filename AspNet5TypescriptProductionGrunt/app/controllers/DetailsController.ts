@@ -14,7 +14,7 @@
         public Message: string;
         public Vm: IDetailsController;
 
-        constructor(scope: ng.IScope, log: any, fastestAnimal: IFastestAnimal) {
+        constructor(scope: any, log: any, fastestAnimal: IFastestAnimal) {
             scope.Vm = this;
             this.log = log;
             this.Message = "Animal Details";

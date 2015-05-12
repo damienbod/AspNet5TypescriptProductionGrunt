@@ -10,11 +10,11 @@
         private scope: ng.IScope;
         private log: any;
 
-        public Animals: any;
+        public Animals: IFastestAnimal[];
         public Message: string;
         public Vm: IOverviewController;
 
-        constructor(scope: ng.IScope, log: any, fastestAnimals: any) {
+        constructor(scope: any, log: any, fastestAnimals: IFastestAnimal[]) {
             scope.Vm = this;
             this.log = log;
             this.Message = "Overview";
