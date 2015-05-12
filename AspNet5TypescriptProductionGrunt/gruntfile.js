@@ -32,7 +32,7 @@ module.exports = function (grunt) {
                 shorthandCompacting: false,
                 roundingPrecision: -1
             },
-            genesis: {
+            mycode: {
                 files: {
                     'wwwroot/lib/mycode.min.css': [
                        "content/main.css"
@@ -49,7 +49,7 @@ module.exports = function (grunt) {
             }
         },
         uglify: {
-            genesis_min_files: {
+            my_min_files: {
                 files: {
                     'wwwroot/lib/mycode.min.js': [
                         "app/app.js",
