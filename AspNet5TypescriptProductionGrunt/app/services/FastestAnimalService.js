@@ -24,10 +24,6 @@ var demo;
     })();
     demo.FastestAnimalService = FastestAnimalService;
     var module = angular.module('myapp');
-    // this code can be used with uglify
-    module.service("FastestAnimalService", [
-        "$http",
-        "$log",
-        FastestAnimalService
-    ]);
+    module.service("FastestAnimalService", ["$http", "$log", FastestAnimalService]);
 })(demo || (demo = {}));
+//# sourceMappingURL=FastestAnimalService.js.map

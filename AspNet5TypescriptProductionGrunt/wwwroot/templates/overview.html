@@ -1,7 +1,7 @@
 ﻿<div class="col-xs-5">
 	<div class="panel panel-primary">
 		<div class="panel-heading">
-			<h3 class="panel-title">{{message}}</h3>
+			<h3 class="panel-title">{{Vm.Message}}</h3>
 		</div>
 		<div class="panel-body">
 			<table class="table">
@@ -12,7 +12,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr style="height:20px;" ng-repeat="animal in animals">
+					<tr style="height:20px;" ng-repeat="animal in Vm.Animals">
 						<td><a href="#/home/overview/details/{{animal.Id}}">{{animal.AnimalName}}</a></td>
 						<td>{{animal.Speed}}</td>
 					</tr>

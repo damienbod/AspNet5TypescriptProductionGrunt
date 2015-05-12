@@ -1,0 +1,1 @@
+//# sourceMappingURL=IFastestAnimal.js.map

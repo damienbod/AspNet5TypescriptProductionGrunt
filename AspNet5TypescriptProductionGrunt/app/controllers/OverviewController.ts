@@ -1,25 +1,29 @@
-﻿(function () {
-	'use strict';
+﻿module demo {
+    'use strict';
 
-    var module = angular.module("myapp");
+    export interface IOverviewController extends ng.IScope {
+        Vm: OverviewController;
+    }
 
-	// this code can be used with uglify
-	module.controller("OverviewController",
-		[
-			"$scope",
-			"$log",
-			"fastestAnimals",
-			//"fastestAnimals",
-			OverviewController
-		]
-	);
+    export class OverviewController {
 
-	function OverviewController($scope, $log, fastestAnimals) {
-		$log.info("OverviewController called");
-		$scope.message = "Overview";
+        private scope: ng.IScope;
+        private log: any;
 
-		$log.info(fastestAnimals);
-		$scope.animals = fastestAnimals;
-	
-	}
-})();
+        public Animals: any;
+        public Message: string;
+        public Vm: IOverviewController;
+
+        constructor(scope: any, log: any, fastestAnimals: any) {
+            scope.Vm = this;
+            this.log = log;
+            this.Message = "Overview";
+            this.log.info("OverviewController called");
+            this.Animals = fastestAnimals;
+        }
+    }
+
+    var app = angular.module('myapp');
+
+    app.controller('OverviewController', ["$scope", "$log", "fastestAnimals", OverviewController]);
+};
