@@ -10,7 +10,7 @@ module demo {
 
     ]);
 
-    demoapp.config(["$stateProvider", "$urlRouterProvider",  ($stateProvider, $urlRouterProvider) => {
+    demoapp.config(["$stateProvider", "$urlRouterProvider", ($stateProvider, $urlRouterProvider) => {
 
         $urlRouterProvider.otherwise("/home/overview");
 
@@ -27,7 +27,7 @@ module demo {
                 }]
             }
         })
-            .state("details", {
+        .state("details", {
             parent: "overview", url: "/details/:animalId", templateUrl: "/templates/details.html", controller: "DetailsController",
             resolve: {
                 FastestAnimalService: "FastestAnimalService",

@@ -15,7 +15,7 @@ module.exports = function (grunt) {
             }
         },
         concat: {
-            venderjs: {
+            vendorjs: {
                 src: [
                     "lib/jquery/jquery.js",
                     "lib/angular/angular.min.js",
@@ -39,9 +39,9 @@ module.exports = function (grunt) {
                     ]
                 }
             },
-            vender: {
+            vendor: {
                 files: {
-                    'wwwroot/lib/vender.min.css': [
+                    'wwwroot/lib/vendor.min.css': [
 
                           "lib/bootstrap/bootstrap.min.css",
                     ]
