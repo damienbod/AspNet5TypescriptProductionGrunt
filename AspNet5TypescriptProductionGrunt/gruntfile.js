@@ -7,9 +7,10 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks("grunt-contrib-concat");
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks("grunt-ts");
-    grunt.loadNpmTasks("grunt-cache-bust");
+    grunt.loadNpmTasks("grunt-cache-control");
 
     grunt.initConfig({
+        hash: '<%= ((new Date()).valueOf().toString()) + (Math.floor((Math.random()*1000000)+1).toString()) %>',          
         ts: {
             default : {
                 src: ["app/**/*.ts"]
@@ -62,17 +63,14 @@ module.exports = function (grunt) {
                 }
             }
         },
-        cacheBust: {
-            options: {
-                encoding: 'utf8',
-                algorithm: 'sha1',
-                length: 16,
-                deleteOriginals: false,
-                rename: false,
-            },
-            assets: {
-                files: {
-                    src: ['wwwroot/index.html']
+        cache_control: {
+            your_target: {
+                source: ['wwwroot/index.html'],
+                options: {
+                    version: "<%= hash %>",
+                    links: true,
+                    scripts: true,
+                    replace: true
                 }
             }
         },
@@ -99,6 +97,6 @@ module.exports = function (grunt) {
 
     });
 
-    grunt.registerTask('development', ['ts', 'concat', 'uglify', 'cssmin', 'cacheBust', 'watch']);
-    grunt.registerTask('buildserver', ['ts', 'concat', 'uglify', 'cssmin', 'cacheBust']);
+    grunt.registerTask('development', ['ts', 'concat', 'uglify', 'cssmin', 'cache_control', 'watch']);
+    grunt.registerTask('buildserver', ['ts', 'concat', 'uglify', 'cssmin', 'cache_control']);
 };
