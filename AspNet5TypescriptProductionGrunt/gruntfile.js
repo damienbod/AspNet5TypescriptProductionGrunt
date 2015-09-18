@@ -7,6 +7,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks("grunt-contrib-concat");
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks("grunt-ts");
+    grunt.loadNpmTasks("grunt-cache-bust");
 
     grunt.initConfig({
         ts: {
@@ -55,9 +56,23 @@ module.exports = function (grunt) {
                         "app/app.js",
                         "app/services/FastestAnimalService.js",
                         "app/controllers/DetailsController.js",
-                        "app/controllers/OverviewController.js",
+                        "app/controllers/OverviewController.js"
 
                     ]
+                }
+            }
+        },
+        cacheBust: {
+            options: {
+                encoding: 'utf8',
+                algorithm: 'sha1',
+                length: 16,
+                deleteOriginals: false,
+                rename: false,
+            },
+            assets: {
+                files: {
+                    src: ['wwwroot/index.html']
                 }
             }
         },
@@ -84,6 +99,6 @@ module.exports = function (grunt) {
 
     });
 
-    grunt.registerTask('development', ['ts', 'concat', 'uglify', 'cssmin', 'watch']);
-    grunt.registerTask('buildserver', ['ts', 'concat', 'uglify', 'cssmin']);
+    grunt.registerTask('development', ['ts', 'concat', 'uglify', 'cssmin', 'cacheBust', 'watch']);
+    grunt.registerTask('buildserver', ['ts', 'concat', 'uglify', 'cssmin', 'cacheBust']);
 };
