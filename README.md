@@ -2,6 +2,9 @@
 ASP.NET 5 Typescript AngularJS application with a grunt production configuration
 =============
 
+https://damienbod.wordpress.com/2015/09/19/adding-cache-safe-links-to-a-grunt-build-in-asp-net-5/
+
+
 Adding Cache safe links to a Grunt build in ASP.NET 5
 =============
 
