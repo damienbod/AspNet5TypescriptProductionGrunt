@@ -16,5 +16,8 @@
     <DevelopmentServerPort>6418</DevelopmentServerPort>
     <GruntGulpQueried>True</GruntGulpQueried>
   </PropertyGroup>
+  <ItemGroup>
+    <DnxInvisibleFolder Include=".tscache\" />
+  </ItemGroup>
   <Import Project="$(VSToolsPath)\DNX\Microsoft.DNX.targets" Condition="'$(VSToolsPath)' != ''" />
 </Project>
