@@ -8,3 +8,6 @@ AspNet5TypescriptProductionGrunt/app/app.js.map
 .vs
 AspNet5TypescriptProductionGrunt/wwwroot/lib
 AspNet5TypescriptProductionGrunt/.tscache
+AspNet5TypescriptProductionGrunt/obj
+AspNet5TypescriptProductionGrunt/bin
+AspNet5TypescriptProductionGrunt/project.lock.json
