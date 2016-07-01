@@ -10,7 +10,16 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks("grunt-cache-control");
 
     grunt.initConfig({
-        hash: '<%= ((new Date()).valueOf().toString()) + (Math.floor((Math.random()*1000000)+1).toString()) %>',          
+        hash: '<%= ((new Date()).valueOf().toString()) + (Math.floor((Math.random()*1000000)+1).toString()) %>',
+        options: {
+            'compiler': './node_modules/typescript/bin/tsc'
+        },
+        default: {
+            tsconfig: {
+                passThrough: true,
+                tsconfig: true
+            }
+        },
         ts: {
             default : {
                 src: ["app/**/*.ts"]
